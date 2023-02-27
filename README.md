@@ -3,10 +3,10 @@
 This HW is focused on creating a login system. There will be a file called `login_database.csv` that is a CSV file of all the usernames and passwords in our database. Here is an excerpt of the starting database:
 
 ```txt
-username, password
-jane, bats
-john, cats
-jessica, rats
+username,password
+jane,bats
+john,cats
+jessica,rats
 ```
 
 Here we can see that we have three users in the database. We can **read** this CSV file as a list of dictionaries by using the following code:

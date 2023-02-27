@@ -73,8 +73,8 @@ def main():
     """    
     # 1. Read database from "login_database.csv" here
     list_of_users = read_database()
-    # print("All users:")
-    # print(list_of_users)
+    print("All users:")
+    print(list_of_users)
     # 2. User Commands
     while(True):
         command = input("Please enter your command (login, register, quit): ")
