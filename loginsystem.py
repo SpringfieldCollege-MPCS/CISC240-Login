@@ -7,9 +7,10 @@ def read_database():
 
     Returns:
         List[Dict]: A list of python dictionaries. E.g.,: [{"username": "Jane", "passwords": bats}, {"username": "John", "passwords": cats}]
-    """    
-    # TODO Please fill this out!
-    return []
+    """
+    with open(DATABASE_FILE, 'r') as f:
+        list_of_users = list(DictReader(f))    
+    return list_of_users
 
 def write_database(list_of_users):
     """Will write the list of users as a CSV file into "login_database.csv". Uses DictWriter.
@@ -52,7 +53,7 @@ def main():
     """    
     # 1. Read database from "login_database.csv" here
     list_of_users = read_database()
-
+    print(list_of_users)
     # 2. User Commands
     while(True):
         command = input("Please enter your command (login, register, quit): ")
