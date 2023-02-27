@@ -50,7 +50,15 @@ def register(list_of_users):
     Returns:
         bool: Returns True if the registration was successful, False otherwise
     """    
-    # TODO Please fill this out!
+    all_usernames = [user['username'] for user in list_of_users]
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    if username in all_usernames:
+        return False
+
+    list_of_users.append(dict(username=username, password=password))
+
     return True
 
 def main():
@@ -74,6 +82,12 @@ def main():
                 print("Valid Login!")
             else:
                 print("Invalid Login!")
+        elif command == "register":
+            result = register(list_of_users)
+            if result:
+                print("Successfully registered")
+            else:
+                print("Username already exists! Registration failed.")
         else:
             print("Invalid command, try again!")
 
