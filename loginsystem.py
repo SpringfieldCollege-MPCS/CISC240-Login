@@ -18,8 +18,12 @@ def write_database(list_of_users):
     Args:
         list_of_users (List[Dict]): A list of python dictionaries. E.g.,: [{"username": "Jane", "passwords": bats}, {"username": "John", "passwords": cats}]
     """    
-    # TODO Please fill this out!
-    pass
+    with open(DATABASE_FILE, 'w', newline='') as f:
+        fieldnames = ['username', 'password']
+        writer = DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        for user in list_of_users:
+            writer.writerow(user)
 
 def login(list_of_users):
     """Will login to a list of users. Will ask the user for their login information and check it against list_of_users.
@@ -69,7 +73,8 @@ def main():
     """    
     # 1. Read database from "login_database.csv" here
     list_of_users = read_database()
-    print(list_of_users)
+    # print("All users:")
+    # print(list_of_users)
     # 2. User Commands
     while(True):
         command = input("Please enter your command (login, register, quit): ")
@@ -79,7 +84,7 @@ def main():
         elif command == "login":
             result = login(list_of_users)
             if result:
-                print("Valid Login!")
+                print("Successful Login!")
             else:
                 print("Invalid Login!")
         elif command == "register":
