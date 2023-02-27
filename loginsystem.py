@@ -30,8 +30,16 @@ def login(list_of_users):
     Returns:
         bool: Return True if login was successful, False if not successful. 
     """    
-    # TODO Please fill this out!
-    return False
+    username = input("Enter username: ")
+    password = input("Enter password: ")
+
+    valid_login = False
+    for user in list_of_users:
+        if username == user['username'] and user['password'] == password:
+            valid_login = True
+            break
+    
+    return valid_login
 
 def register(list_of_users):
     """Prompts user for their credentials and creates a new user that is added to list_of_users
@@ -60,6 +68,14 @@ def main():
         # TODO please finish the rest of the commands!
         if command == "quit":
             break
+        elif command == "login":
+            result = login(list_of_users)
+            if result:
+                print("Valid Login!")
+            else:
+                print("Invalid Login!")
+        else:
+            print("Invalid command, try again!")
 
     # 3. write database to file, (saving the database)
     write_database(list_of_users)
