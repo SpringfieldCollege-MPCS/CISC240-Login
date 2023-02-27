@@ -36,4 +36,11 @@ with open("login_database.csv", 'r') as f
 6. Modify the `register` function such that you can **not** have duplicate user names (1pt).
 
 
+**Example Output**
+
+This the running program in VSCodes terminal. If you don't have VSCode setup to use GitBash, you will use Windows Terminal.
+
+![](./HW7_login_example.gif)
+
+
 
